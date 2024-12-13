@@ -20,9 +20,7 @@ function getFileCreateDate(filePath) {
 }
 
 function getWeeklyDate(num) {
-	return num < 100
-		? formatDate(dayjs(START_DATE).subtract(100 - num, 'week'))
-		: getFileCreateDate(filePath);
+	return getFileCreateDate(filePath);
 }
 
 function getTwitterImage(num) {
