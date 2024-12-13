@@ -19,7 +19,7 @@ function getFileCreateDate(filePath) {
 	return formatDate(fs.statSync(filePath).birthtime);
 }
 
-function getWeeklyDate(num) {
+function getWeeklyDate(num, filePath) {
 	return getFileCreateDate(filePath);
 }
 
@@ -48,7 +48,7 @@ function defaultLayoutPlugin() {
 		if (!frontmatter.date) {
 			const postNumber = filePath.split('/posts/')[1].split('-')[0];
 			frontmatter.date = SITE.repo === WEEKLY_REPO_NAME
-				? getWeeklyDate(postNumber)
+				? getWeeklyDate(postNumber, filePath)
 				: getFileCreateDate(filePath);
 		}
 
